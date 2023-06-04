@@ -1,10 +1,8 @@
-﻿using System.ComponentModel;
+﻿namespace Application;
 
-namespace Application;
-
-public class Stack1 : object
+public class StackOfObject : object
 {
-	public Stack1() : base()
+	public StackOfObject() : base()
 	{
 		//List = new System.Collections.ArrayList();
 	}
