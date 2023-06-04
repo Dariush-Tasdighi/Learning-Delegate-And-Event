@@ -33,12 +33,42 @@ public class StackOfObject : object
 	{
 		get
 		{
-			if (_list is null)
-			{
-				_list = new System.Collections.ArrayList();
-			}
+			//if (_list is null)
+			//{
+			//	_list = new System
+			//		.Collections.ArrayList();
+			//}
+
+			_list ??= new System
+				.Collections.ArrayList();
 
 			return _list;
+		}
+	}
+
+	//public bool IsEmpty
+	//{
+	//	get
+	//	{
+	//		var result =
+	//			List.Count;
+
+	//		if (result == 0)
+	//		{
+	//			return true;
+	//		}
+	//		else
+	//		{
+	//			return false;
+	//		}
+	//	}
+	//}
+
+	public bool IsEmpty
+	{
+		get
+		{
+			return List.Count == 0 ? true : false;
 		}
 	}
 
@@ -47,22 +77,32 @@ public class StackOfObject : object
 		List.Add(value: value);
 	}
 
-	public object? Pop()
+	public object Pop()
 	{
-		//if( List is null)
-		//{
-		//	return null;
-		//}
-
 		if (List.Count == 0)
 		{
-			return null;
+			var errorMessage =
+				$"Stack is Empty!";
+
+			throw new System
+				.Exception(message: errorMessage);
 		}
 
-		var result =
-			List[List.Count - 1];
+		var result = List[^1];
+
+		//var result =
+		//	List[List.Count - 1];
 
 		List.RemoveAt(index: List.Count - 1);
+
+		if (result is null)
+		{
+			var errorMessage =
+				$"Stack item is null!";
+
+			throw new System
+				.Exception(message: errorMessage);
+		}
 
 		return result;
 	}
