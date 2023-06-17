@@ -1,8 +1,8 @@
 ﻿namespace Application;
 
-public class StackOfPerson : object
+public class NewStack<SomeType> : object
 {
-	public StackOfPerson() : base()
+	public NewStack() : base()
 	{
 	}
 
@@ -27,12 +27,12 @@ public class StackOfPerson : object
 		}
 	}
 
-	public void Push(Person value)
+	public void Push(SomeType value)
 	{
 		List.Add(value: value);
 	}
 
-	public Person Pop()
+	public SomeType Pop()
 	{
 		if (IsEmpty)
 		{
@@ -43,8 +43,7 @@ public class StackOfPerson : object
 				.Exception(message: errorMessage);
 		}
 
-		var result =
-			List[^1] as Person;
+		var result = List[^1];
 
 		List.RemoveAt(index: List.Count - 1);
 
@@ -57,6 +56,6 @@ public class StackOfPerson : object
 				.Exception(message: errorMessage);
 		}
 
-		return result;
+		return (SomeType)result;
 	}
 }

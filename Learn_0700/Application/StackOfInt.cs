@@ -8,7 +8,7 @@ public class StackOfInt : object
 
 	private System.Collections.ArrayList? _list;
 
-	public System.Collections.ArrayList List
+	protected System.Collections.ArrayList List
 	{
 		get
 		{
@@ -34,7 +34,7 @@ public class StackOfInt : object
 
 	public int Pop()
 	{
-		if (List.Count == 0)
+		if (IsEmpty)
 		{
 			var errorMessage =
 				$"Stack is Empty!";

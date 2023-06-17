@@ -31,6 +31,11 @@ internal static class Program : object
 
 		//myDelegate1();
 
+		//if (myDelegate1 is not null)
+		//{
+		//	myDelegate1.Invoke();
+		//}
+
 		myDelegate1?.Invoke();
 		// **************************************************
 
@@ -90,6 +95,9 @@ internal static class Program : object
 		var theObject5 = new MyClass();
 
 		// 	public delegate TResult Func<out TResult>();
+		// 	public delegate TResult Func<in TIn1, out TResult>();
+		// 	public delegate TResult Func<in TIn1, int TIn2, ..., TIn16, out TResult>();
+
 		//var myDelegate5 =
 		//	new System.Func<string>(theObject5.Function5);
 
@@ -112,6 +120,6 @@ internal static class Program : object
 
 		var result6 =
 			myDelegate6?.Invoke(arg: 10);
-		//// **************************************************
+		// **************************************************
 	}
 }

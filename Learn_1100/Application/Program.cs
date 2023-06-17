@@ -20,6 +20,9 @@ internal static class Program : object
 		var myDelegate1 =
 			new MyDelegate(SomeFunction);
 
+		// در این حالت خاص، دستور ذیل درست نمی‌باشد
+		//var myDelegate1 = SomeFunction;
+
 		var result1 =
 			myDelegate1?.Invoke(value: 10);
 
@@ -118,17 +121,25 @@ internal static class Program : object
 		//	System.Console.WriteLine(value: item);
 		//}
 
-		//list.ForEach(action: DoSomething);
+		list.ForEach(action: DoSomething);
 
-		//list.ForEach(action: (int item) =>
-		//{
-		//	System.Console.WriteLine(value: item);
-		//});
+		list.ForEach(action: (int item) =>
+		{
+			item *= 10;
+
+			System.Console.WriteLine(value: item);
+		});
 
 		list.ForEach(action: (item) =>
 		{
+			item *= 10;
+
 			System.Console.WriteLine(value: item);
 		});
+
+		list.ForEach(action: (item) => System.Console.WriteLine(value: item));
+
+		list.ForEach(action: System.Console.WriteLine);
 		// **************************************************
 		// **************************************************
 		// **************************************************
